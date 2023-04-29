@@ -112,8 +112,8 @@ TextureImporter:
         y: 5
         width: 93
         height: 87
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.8322834, y: 0.018507382}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -133,8 +133,8 @@ TextureImporter:
         y: 5
         width: 101
         height: 81
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.737972, y: 0.025231391}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -150,12 +150,12 @@ TextureImporter:
       name: IntProg_Saba_2
       rect:
         serializedVersion: 2
-        x: 229
+        x: 230
         y: 6
         width: 108
         height: 80
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.760699, y: 0.019296682}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -175,8 +175,8 @@ TextureImporter:
         y: 5
         width: 113
         height: 81
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.7370092, y: 0.025231391}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
