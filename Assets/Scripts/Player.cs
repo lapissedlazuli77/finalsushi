@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class Player : MonoBehaviour
 {
@@ -11,6 +12,17 @@ public class Player : MonoBehaviour
     string SelectedUnit;
     string SelectedLane;
     string iconSelected;
+
+    public GameObject HamachiUnit;
+    public GameObject IkuraUnit;
+
+    public bool isPicking = false;
+
+    [SerializeField]
+    TextMeshProUGUI costdisplay;
+
+    private float timer = 0;
+    private float timertrigger = 0.39f;
 
     void AssembleStateMachine()
     {
@@ -28,6 +40,17 @@ public class Player : MonoBehaviour
     private void Update()
     {
         this.stateMachine.Execute();
+
+        costdisplay.text = currentcost.ToString();
+        if (timer >= timertrigger)
+        {
+            timer = 0;
+            currentcost++;
+        }
+        else
+        {
+            timer += Time.deltaTime;
+        }
     }
 
     #region states
@@ -41,7 +64,8 @@ public class Player : MonoBehaviour
 
     void PickLane()
     {
-        if (Input.GetKeyDown(KeyCode.Backspace))
+        isPicking = true;
+        if(Input.GetKeyDown(KeyCode.Backspace))
         {
             ClearSelection();
             stateMachine.ChangeState("PickUnit");
@@ -89,13 +113,50 @@ public class Player : MonoBehaviour
                 char charlane = lanename[lanename.Length - 1];
                 SelectedLane = charlane.ToString();
                 Debug.Log(SelectedLane);
-                stateMachine.ChangeState("PickUnit");
+                PlayUnit(SelectedLane);
             }
+        }
+    }
+
+    void PlayUnit(string lane)
+    {
+        int unitcost = 0;
+        float laneToPlay = float.Parse(lane);
+
+        float truepos = (2 - laneToPlay * 0.8f);
+        if (SelectedUnit == "Hamachi") unitcost = 10;
+        else if (SelectedUnit == "Ikura") unitcost = 20;
+        else if (SelectedUnit == "Saba") unitcost = 40;
+        else if (SelectedUnit == "Fugu") unitcost = 60;
+        if (currentcost >= unitcost)
+        {
+            Debug.Log("Sending " + SelectedUnit);
+            if (SelectedUnit == "Hamachi")
+            {
+                GameObject newHamachi = Instantiate(HamachiUnit);
+                newHamachi.transform.position = new Vector3(-5, truepos, 0);
+            }
+            else if (SelectedUnit == "Ikura")
+            {
+                GameObject newIkura = Instantiate(IkuraUnit);
+                newIkura.transform.position = new Vector3(-5, truepos, 0);
+            }
+            currentcost -= unitcost;
+            ClearSelection();
+            stateMachine.ChangeState("PickUnit");
+        }
+        else
+        {
+            Debug.Log("You don't have enough for that.");
+            ClearSelection();
+            stateMachine.ChangeState("PickUnit");
         }
     }
 
     void ClearSelection()
     {
         SelectedUnit = "";
+        SelectedLane = "";
+        isPicking = false;
     }
 }
