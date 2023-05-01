@@ -876,6 +876,7 @@ MonoBehaviour:
   SelectedUnit: 
   HamachiUnit: {fileID: 7361416423759379267, guid: 8d9b38573d99646f6aee074aacb132fa, type: 3}
   IkuraUnit: {fileID: 8554164211437007978, guid: b45187fb46fb94cf28e3d50107ed84df, type: 3}
+  SabaUnit: {fileID: 3097690910768328210, guid: 5c5ee64f63e4a4189857192096dc89c0, type: 3}
   isPicking: 0
   costdisplay: {fileID: 1212670592}
 --- !u!4 &1863538952

@@ -15,6 +15,7 @@ public class Player : MonoBehaviour
 
     public GameObject HamachiUnit;
     public GameObject IkuraUnit;
+    public GameObject SabaUnit;
 
     public bool isPicking = false;
 
@@ -140,6 +141,11 @@ public class Player : MonoBehaviour
             {
                 GameObject newIkura = Instantiate(IkuraUnit);
                 newIkura.transform.position = new Vector3(-5, truepos, 0);
+            }
+            else if (SelectedUnit == "Saba")
+            {
+                GameObject newSaba = Instantiate(SabaUnit);
+                newSaba.transform.position = new Vector3(-5, truepos, 0);
             }
             currentcost -= unitcost;
             ClearSelection();
