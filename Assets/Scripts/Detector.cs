@@ -7,7 +7,7 @@ public class Detector : MonoBehaviour
     public string tagseek;
     public bool inrange;
 
-    private void OnTriggerEnter2D(Collider2D other)
+    private void OnTriggerStay2D(Collider2D other)
     {
         if (other.tag == tagseek)
         {

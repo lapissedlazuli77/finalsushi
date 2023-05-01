@@ -10,7 +10,7 @@ public class Saba : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
@@ -20,12 +20,11 @@ public class Saba : MonoBehaviour
         currentPosition.x += speed;
         transform.position = currentPosition;
     }
-
-    private void OnTriggerEnter2D(Collider2D other)
+    private void OnCollisionStay2D(Collision2D collision)
     {
-        if (other.tag == "EnemyUnit")
+        if (collision.gameObject.tag == "EnemyUnit")
         {
-            Destroy(other);
+            Destroy(collision.gameObject);
             Destroy(gameObject);
         }
     }

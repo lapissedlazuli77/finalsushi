@@ -12,6 +12,7 @@ public class BaseKaniUnit : MonoBehaviour
     public StateMachine stateMachine;
 
     public Detector detector;
+    public HitboxE hitbox;
 
     void AssembleStateMachine()
     {
@@ -51,6 +52,10 @@ public class BaseKaniUnit : MonoBehaviour
         {
             Destroy(gameObject);
         }
+        if (health <= 0)
+        {
+            Destroy(gameObject);
+        }
     }
     #region states
     void Advancing()
@@ -63,6 +68,7 @@ public class BaseKaniUnit : MonoBehaviour
     {
         Vector3 currentPosition = transform.position;
         transform.position = currentPosition;
+        Attack();
     }
     #endregion
 
@@ -78,5 +84,16 @@ public class BaseKaniUnit : MonoBehaviour
     protected virtual void SetSpeed()
     {
         speed = 1f;
+    }
+    protected virtual void Attack()
+    {
+        if (myAnim.GetCurrentAnimatorStateInfo(0).normalizedTime >= 0.125f && myAnim.GetCurrentAnimatorStateInfo(0).normalizedTime <= 0.375f)
+        {
+            hitbox.gameObject.SetActive(true);
+        }
+        else
+        {
+            hitbox.gameObject.SetActive(false);
+        }
     }
 }

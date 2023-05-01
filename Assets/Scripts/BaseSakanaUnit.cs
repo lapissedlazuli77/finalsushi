@@ -12,6 +12,7 @@ public class BaseSakanaUnit : MonoBehaviour
 
     Animator myAnim;
     public Detector detector;
+    public Hitbox hitbox;
 
     void AssembleStateMachine()
     {
@@ -50,6 +51,10 @@ public class BaseSakanaUnit : MonoBehaviour
         {
             Destroy(gameObject);
         }
+        if (health <= 0)
+        {
+            Destroy(gameObject);
+        }
     }
 
     #region states
@@ -63,6 +68,7 @@ public class BaseSakanaUnit : MonoBehaviour
     {
         Vector3 currentPosition = transform.position;
         transform.position = currentPosition;
+        Attack();
     }
     #endregion
 
@@ -74,9 +80,21 @@ public class BaseSakanaUnit : MonoBehaviour
     protected virtual void SetDamage()
     {
         damage = 100f;
+        hitbox.damage = damage;
     }
     protected virtual void SetSpeed()
     {
         speed = 1f;
+    }
+    protected virtual void Attack()
+    {
+        if (myAnim.GetCurrentAnimatorStateInfo(0).normalizedTime >= 0.125f && myAnim.GetCurrentAnimatorStateInfo(0).normalizedTime <= 0.375f)
+        {
+            Debug.Log("Attack");
+            hitbox.gameObject.SetActive(true);
+        } else
+        {
+            hitbox.gameObject.SetActive(false);
+        }
     }
 }
