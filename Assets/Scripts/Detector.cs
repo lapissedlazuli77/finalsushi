@@ -7,10 +7,11 @@ public class Detector : MonoBehaviour
     public string tagseek;
     public bool inrange;
 
-    private void OnCollisionEnter(Collision collision)
+    private void OnTriggerEnter(Collider other)
     {
-        if (collision.gameObject.tag == tagseek)
+        if (other.tag == tagseek)
         {
+            Debug.Log("In range");
             inrange = true;
         }
     }
