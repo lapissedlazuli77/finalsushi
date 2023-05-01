@@ -21,6 +21,10 @@ public class BaseSakanaUnit : MonoBehaviour
     void Start()
     {
         myAnim = GetComponent<Animator>();
+
+        SetHealth();
+        SetDamage();
+        SetSpeed();
     }
 
     // Start is called before the first frame update
@@ -33,6 +37,10 @@ public class BaseSakanaUnit : MonoBehaviour
     void Update()
     {
         this.stateMachine.Execute();
+        if (transform.position.x >= 4f)
+        {
+            Destroy(gameObject);
+        }
     }
     #region states
     void Advancing()
@@ -48,4 +56,18 @@ public class BaseSakanaUnit : MonoBehaviour
         transform.position = currentPosition;
     }
     #endregion
+
+    protected virtual void SetHealth()
+    {
+        health = 100f;
+    }
+
+    protected virtual void SetDamage()
+    {
+        damage = 100f;
+    }
+    protected virtual void SetSpeed()
+    {
+        speed = 1f;
+    }
 }

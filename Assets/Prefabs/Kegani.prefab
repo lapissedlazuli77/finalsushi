@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 4526169765601617944}
   - component: {fileID: 4888937113311339821}
   - component: {fileID: 964708670870804231}
+  - component: {fileID: 8657237244746649793}
   m_Layer: 0
   m_Name: Kegani
   m_TagString: EnemyUnit
@@ -135,6 +136,21 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.36, y: 0.64}
   m_EdgeRadius: 0
+--- !u!114 &8657237244746649793
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 258733652346129732}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 01038af026e6f40bfb88dbb8e9300c27, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 0
+  damage: 0
+  speed: 0
 --- !u!1 &5202444721730030453
 GameObject:
   m_ObjectHideFlags: 0

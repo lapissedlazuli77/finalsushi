@@ -101,7 +101,7 @@ GameObject:
   - component: {fileID: 8639318954049999074}
   - component: {fileID: 7157651095167947594}
   - component: {fileID: 1689408586974033295}
-  - component: {fileID: -6352863583252686650}
+  - component: {fileID: -4053346776217181005}
   m_Layer: 0
   m_Name: Ikura
   m_TagString: PlayerUnit
@@ -225,7 +225,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.32, y: 0.8399999}
   m_EdgeRadius: 0
---- !u!114 &-6352863583252686650
+--- !u!114 &-4053346776217181005
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -234,9 +234,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 8554164211437007978}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2cdab3203fe56425a9343637861cc4ec, type: 3}
+  m_Script: {fileID: 11500000, guid: cee1692a356bf4d418967b4e34c205bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   health: 0
   damage: 0
-  speed: 0.0023
+  speed: 0

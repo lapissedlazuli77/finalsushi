@@ -152,6 +152,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 31d5dda0cf417480fa7623b4bd1f6ea6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  KeganiUnit: {fileID: 258733652346129732, guid: a35917d060e344cdcb6c9dc29fba9d41, type: 3}
+  KurageUnit: {fileID: 1298079749428039994, guid: bcc71fd1e99e64fffb8d17adb79df7f0, type: 3}
 --- !u!4 &114271593
 Transform:
   m_ObjectHideFlags: 0
