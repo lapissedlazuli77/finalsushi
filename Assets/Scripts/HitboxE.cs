@@ -6,13 +6,13 @@ public class HitboxE : MonoBehaviour
 {
     public float damage = 10f;
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnTriggerEnter2D(Collider2D other)
     {
-        if (collision.transform.TryGetComponent(out Hamachi hhealth))
+        if (other.TryGetComponent(out Hamachi hhealth))
         {
             hhealth.health -= damage;
         }
-        if (collision.transform.TryGetComponent(out Ikura shealth))
+        if (other.TryGetComponent(out Ikura shealth))
         {
             shealth.health -= damage;
         }

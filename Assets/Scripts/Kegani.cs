@@ -16,4 +16,8 @@ public class Kegani : BaseKaniUnit
     {
         speed = 0.0018f;
     }
+    public void Damaged(float dama)
+    {
+        health -= dama;
+    }
 }

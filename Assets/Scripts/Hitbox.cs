@@ -5,16 +5,15 @@ using UnityEngine;
 public class Hitbox : MonoBehaviour
 {
     public float damage = 10f;
+    public int attacklimit = 0;
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnTriggerEnter2D(Collider2D other)
     {
-        if (collision.transform.TryGetComponent(out Kegani khealth))
+        if (other.tag == "EnemyUnit" && attacklimit <= 0 && (other.GetComponent("Kegani") as Kegani) != null)
         {
-            khealth.health -= damage;
-        }
-        if (collision.transform.TryGetComponent(out Kurage jhealth))
-        {
-            jhealth.health -= damage;
+            attacklimit++;
+            Kegani.Damaged(damage);
+            Debug.Log("attacked");
         }
     }
 }

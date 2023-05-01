@@ -138,7 +138,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0.3, y: 0.05}
@@ -180,6 +180,7 @@ GameObject:
   - component: {fileID: 4896017684030037338}
   - component: {fileID: 173388384250483716}
   - component: {fileID: 5098272324359648164}
+  - component: {fileID: 4764742064437418678}
   m_Layer: 0
   m_Name: Hamachi
   m_TagString: PlayerUnit
@@ -321,3 +322,24 @@ MonoBehaviour:
   myAnim: {fileID: 4896017684030037338}
   detector: {fileID: 7342402724179313592}
   hitbox: {fileID: 8666007716356220847}
+--- !u!50 &4764742064437418678
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7361416423759379267}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 6

@@ -95,5 +95,9 @@ public class BaseSakanaUnit : MonoBehaviour
         {
             hitbox.gameObject.SetActive(false);
         }
+        if (myAnim.GetCurrentAnimatorStateInfo(0).normalizedTime >= 0.5f && hitbox.attacklimit > 0)
+        {
+            hitbox.attacklimit = 0;
+        }
     }
 }
