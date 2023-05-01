@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Kurage : BaseSakanaUnit
+public class Kurage : BaseKaniUnit
 {
     protected override void SetHealth()
     {

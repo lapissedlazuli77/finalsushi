@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Kegani : BaseSakanaUnit
+public class Kegani : BaseKaniUnit
 {
     protected override void SetHealth()
     {

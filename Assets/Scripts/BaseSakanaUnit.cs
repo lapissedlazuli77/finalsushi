@@ -11,6 +11,7 @@ public class BaseSakanaUnit : MonoBehaviour
     public StateMachine stateMachine;
 
     Animator myAnim;
+    public Detector detector;
 
     void AssembleStateMachine()
     {
@@ -37,11 +38,20 @@ public class BaseSakanaUnit : MonoBehaviour
     void Update()
     {
         this.stateMachine.Execute();
+        if (detector.inrange)
+        {
+            stateMachine.ChangeState("Attacking");
+            myAnim.SetBool("isAttacking", true);
+        } else
+        {
+            myAnim.SetBool("isAttacking", false);
+        }
         if (transform.position.x >= 4f)
         {
             Destroy(gameObject);
         }
     }
+
     #region states
     void Advancing()
     {
@@ -52,7 +62,6 @@ public class BaseSakanaUnit : MonoBehaviour
     void Attacking()
     {
         Vector3 currentPosition = transform.position;
-        currentPosition.x += speed;
         transform.position = currentPosition;
     }
     #endregion
