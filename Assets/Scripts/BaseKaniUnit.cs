@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class BaseKaniUnit : MonoBehaviour
 {
-    public float health;
-    public float damage;
-    public float speed;
+    public float health = 1f;
+    public float damage = 1f;
+    public float speed = 1f;
 
     public Animator myAnim;
     public StateMachine stateMachine;

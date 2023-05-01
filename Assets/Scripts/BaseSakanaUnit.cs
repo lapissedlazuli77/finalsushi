@@ -45,6 +45,7 @@ public class BaseSakanaUnit : MonoBehaviour
             myAnim.SetBool("isAttacking", true);
         } else
         {
+            stateMachine.ChangeState("Advancing");
             myAnim.SetBool("isAttacking", false);
         }
         if (transform.position.x >= 4f)
@@ -68,7 +69,10 @@ public class BaseSakanaUnit : MonoBehaviour
     {
         Vector3 currentPosition = transform.position;
         transform.position = currentPosition;
-        Attack();
+        if (myAnim.GetCurrentAnimatorStateInfo(0).normalizedTime >= 0.5f && hitbox.hasattacked)
+        {
+            Attack();
+        }
     }
     #endregion
 
@@ -88,16 +92,6 @@ public class BaseSakanaUnit : MonoBehaviour
     }
     protected virtual void Attack()
     {
-        if (myAnim.GetCurrentAnimatorStateInfo(0).normalizedTime >= 0.125f && myAnim.GetCurrentAnimatorStateInfo(0).normalizedTime <= 0.375f)
-        {
-            hitbox.gameObject.SetActive(true);
-        } else if (myAnim.GetCurrentAnimatorStateInfo(0).normalizedTime < 0.125f && myAnim.GetCurrentAnimatorStateInfo(0).normalizedTime > 0.375f)
-        {
-            hitbox.gameObject.SetActive(false);
-        }
-        if (myAnim.GetCurrentAnimatorStateInfo(0).normalizedTime >= 0.5f && hitbox.attacklimit > 0)
-        {
-            hitbox.attacklimit = 0;
-        }
+        hitbox.hasattacked = false;
     }
 }

@@ -20,6 +20,10 @@ public class Kurage : BaseKaniUnit
     {
         speed = 0.0006f;
     }
+    public void Damaged(float dama)
+    {
+        health -= dama;
+    }
     protected override void Attack()
     {
         if (myAnim.GetCurrentAnimatorStateInfo(0).normalizedTime >= 0.125f &&
