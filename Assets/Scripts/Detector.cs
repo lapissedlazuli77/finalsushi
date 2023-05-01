@@ -11,7 +11,6 @@ public class Detector : MonoBehaviour
     {
         if (other.tag == tagseek)
         {
-            Debug.Log("In range");
             inrange = true;
         }
     }

@@ -14,6 +14,6 @@ public class Kegani : BaseKaniUnit
     }
     protected override void SetSpeed()
     {
-        speed = 0.0020f;
+        speed = 0.0018f;
     }
 }

@@ -8,7 +8,7 @@ public class BaseKaniUnit : MonoBehaviour
     public float damage;
     public float speed;
 
-    Animator myAnim;
+    public Animator myAnim;
     public StateMachine stateMachine;
 
     public Detector detector;
@@ -80,6 +80,7 @@ public class BaseKaniUnit : MonoBehaviour
     protected virtual void SetDamage()
     {
         damage = 100f;
+        hitbox.damage = damage;
     }
     protected virtual void SetSpeed()
     {
@@ -91,7 +92,7 @@ public class BaseKaniUnit : MonoBehaviour
         {
             hitbox.gameObject.SetActive(true);
         }
-        else
+        else if (myAnim.GetCurrentAnimatorStateInfo(0).normalizedTime < 0.125f && myAnim.GetCurrentAnimatorStateInfo(0).normalizedTime > 0.375f)
         {
             hitbox.gameObject.SetActive(false);
         }

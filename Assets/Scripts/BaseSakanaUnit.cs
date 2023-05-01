@@ -10,7 +10,7 @@ public class BaseSakanaUnit : MonoBehaviour
 
     public StateMachine stateMachine;
 
-    Animator myAnim;
+    public Animator myAnim;
     public Detector detector;
     public Hitbox hitbox;
 
@@ -90,9 +90,8 @@ public class BaseSakanaUnit : MonoBehaviour
     {
         if (myAnim.GetCurrentAnimatorStateInfo(0).normalizedTime >= 0.125f && myAnim.GetCurrentAnimatorStateInfo(0).normalizedTime <= 0.375f)
         {
-            Debug.Log("Attack");
             hitbox.gameObject.SetActive(true);
-        } else
+        } else if (myAnim.GetCurrentAnimatorStateInfo(0).normalizedTime < 0.125f && myAnim.GetCurrentAnimatorStateInfo(0).normalizedTime > 0.375f)
         {
             hitbox.gameObject.SetActive(false);
         }
