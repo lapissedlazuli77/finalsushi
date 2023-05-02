@@ -59,20 +59,18 @@ public class BaseSakanaUnit : MonoBehaviour
     }
 
     #region states
-    void Advancing()
+    protected virtual void Advancing()
     {
         Vector3 currentPosition = transform.position;
         currentPosition.x += speed;
         transform.position = currentPosition;
+        hitbox.attacking = false;
     }
-    void Attacking()
+    protected virtual void Attacking()
     {
         Vector3 currentPosition = transform.position;
         transform.position = currentPosition;
-        if (myAnim.GetCurrentAnimatorStateInfo(0).normalizedTime >= 0.5f && hitbox.hasattacked)
-        {
-            Attack();
-        }
+        hitbox.attacking = true;
     }
     #endregion
 
@@ -89,9 +87,5 @@ public class BaseSakanaUnit : MonoBehaviour
     protected virtual void SetSpeed()
     {
         speed = 1f;
-    }
-    protected virtual void Attack()
-    {
-        hitbox.hasattacked = false;
     }
 }

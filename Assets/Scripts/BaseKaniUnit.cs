@@ -43,9 +43,9 @@ public class BaseKaniUnit : MonoBehaviour
         {
             stateMachine.ChangeState("Attacking");
             myAnim.SetBool("isAttacking", true);
-        }
-        else
+        } else
         {
+            stateMachine.ChangeState("Advancing");
             myAnim.SetBool("isAttacking", false);
         }
         if (transform.position.x <= -4f)
@@ -57,18 +57,20 @@ public class BaseKaniUnit : MonoBehaviour
             Destroy(gameObject);
         }
     }
+    
     #region states
-    void Advancing()
+    protected virtual void Advancing()
     {
         Vector3 currentPosition = transform.position;
         currentPosition.x -= speed;
         transform.position = currentPosition;
+        hitbox.attacking = false;
     }
-    void Attacking()
+    protected virtual void Attacking()
     {
         Vector3 currentPosition = transform.position;
         transform.position = currentPosition;
-        Attack();
+        hitbox.attacking = true;
     }
     #endregion
 
@@ -85,16 +87,5 @@ public class BaseKaniUnit : MonoBehaviour
     protected virtual void SetSpeed()
     {
         speed = 1f;
-    }
-    protected virtual void Attack()
-    {
-        if (myAnim.GetCurrentAnimatorStateInfo(0).normalizedTime >= 0.125f && myAnim.GetCurrentAnimatorStateInfo(0).normalizedTime <= 0.375f)
-        {
-            hitbox.gameObject.SetActive(true);
-        }
-        else if (myAnim.GetCurrentAnimatorStateInfo(0).normalizedTime < 0.125f && myAnim.GetCurrentAnimatorStateInfo(0).normalizedTime > 0.375f)
-        {
-            hitbox.gameObject.SetActive(false);
-        }
     }
 }

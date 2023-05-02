@@ -5,13 +5,30 @@ using UnityEngine;
 public class Hitbox : MonoBehaviour
 {
     public float damage = 10f;
-    public bool hasattacked = false;
+    public bool canattack = false;
+    public bool attacking = false;
+
+    float timer = 0;
+    float timelimit = 0.75f;
+
+    void Update()
+    {
+        if (attacking) {
+            timer += Time.deltaTime;
+
+            if (timer >= timelimit)
+            {
+                timer = 0;
+                canattack = true;
+            }
+        }
+    }
 
     private void OnTriggerStay2D(Collider2D other)
     {
-        if (other.tag == "EnemyUnit" && !hasattacked)
+        if (canattack && other.tag == "EnemyUnit")
         {
-            hasattacked = true;
+            canattack = false;
             if ((other.GetComponent("Kegani") as Kegani) != null)
             {
                 other.GetComponent<Kegani>().Damaged(damage);

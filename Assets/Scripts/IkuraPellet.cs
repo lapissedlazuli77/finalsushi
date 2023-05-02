@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class KurageBolt : MonoBehaviour
+public class IkuraPellet : MonoBehaviour
 {
     public float damage = 50f;
     public float speed = 0.03f;
@@ -16,9 +16,9 @@ public class KurageBolt : MonoBehaviour
     }
     void OnEnable()
     {
-        GameObject[] enemyObjects = GameObject.FindGameObjectsWithTag("EnemyUnit");
+        GameObject[] playerObjects = GameObject.FindGameObjectsWithTag("PlayerUnit");
 
-        foreach (GameObject obj in enemyObjects)
+        foreach (GameObject obj in playerObjects)
         {
             Physics2D.IgnoreCollision(obj.GetComponent<Collider2D>(), GetComponent<Collider2D>());
         }
@@ -32,15 +32,15 @@ public class KurageBolt : MonoBehaviour
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.tag == "PlayerUnit")
+        if(collision.gameObject.tag == "EnemyUnit")
         {
-            if ((collision.gameObject.GetComponent("Hamachi") as Hamachi) != null)
+            if ((collision.gameObject.GetComponent("Kegani") as Kegani) != null)
             {
-                collision.gameObject.GetComponent<Hamachi>().Damaged(damage);
+                collision.gameObject.GetComponent<Kegani>().Damaged(damage);
             }
-            else if ((collision.gameObject.GetComponent("Ikura") as Ikura) != null)
+            else if ((collision.gameObject.GetComponent("Kurage") as Kurage) != null)
             {
-                collision.gameObject.GetComponent<Ikura>().Damaged(damage);
+                collision.gameObject.GetComponent<Kurage>().Damaged(damage);
             }
         }
         Destroy(gameObject);

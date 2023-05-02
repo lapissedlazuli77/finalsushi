@@ -4,9 +4,23 @@ using UnityEngine;
 
 public class Kurage : BaseKaniUnit
 {
-    public GameObject bolt;
-    public GameObject shootorigin;
-    int boltcount = 0;
+    public ShooterE shooter;
+
+    #region states
+    protected override void Advancing()
+    {
+        Vector3 currentPosition = transform.position;
+        currentPosition.x -= speed;
+        transform.position = currentPosition;
+        shooter.attacking = false;
+    }
+    protected override void Attacking()
+    {
+        Vector3 currentPosition = transform.position;
+        transform.position = currentPosition;
+        shooter.attacking = true;
+    }
+    #endregion
 
     protected override void SetHealth()
     {
@@ -15,6 +29,7 @@ public class Kurage : BaseKaniUnit
     protected override void SetDamage()
     {
         damage = 50f;
+        shooter.damage = damage;
     }
     protected override void SetSpeed()
     {
@@ -23,23 +38,5 @@ public class Kurage : BaseKaniUnit
     public void Damaged(float dama)
     {
         health -= dama;
-    }
-    protected override void Attack()
-    {
-        if (myAnim.GetCurrentAnimatorStateInfo(0).normalizedTime >= 0.125f &&
-            myAnim.GetCurrentAnimatorStateInfo(0).normalizedTime <= 0.15f &&
-            boltcount < 1)
-        {
-            boltcount++;
-            Vector3 currentPosition = shootorigin.transform.position;
-
-            GameObject newBolt = Instantiate(bolt, currentPosition, Quaternion.Euler(new Vector3(0,0,0))) as GameObject;
-            Rigidbody2D myBody = newBolt.GetComponent<Rigidbody2D>();
-            myBody.velocity = new Vector2(-4f, 0);
-        }
-        if (myAnim.GetCurrentAnimatorStateInfo(0).normalizedTime >= 0.5f && boltcount > 0)
-        {
-            boltcount = 0;
-        }
     }
 }

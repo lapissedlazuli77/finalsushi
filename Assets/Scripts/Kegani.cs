@@ -10,7 +10,8 @@ public class Kegani : BaseKaniUnit
     }
     protected override void SetDamage()
     {
-        damage = 14f;
+        damage = 12f;
+        hitbox.damage = damage;
     }
     protected override void SetSpeed()
     {

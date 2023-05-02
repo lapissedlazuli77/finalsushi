@@ -39,11 +39,11 @@ public class Enemy : MonoBehaviour
     }
     void SummonUnit()
     {
-        int whichlane = Random.Range(1, 4);
+        int whichlane = Random.Range(1, 5);
         float laneToPlay = (float)whichlane;
 
         float truepos = (2 - laneToPlay * 0.8f);
-        int whichunit = Random.Range(1, 5);
+        int whichunit = Random.Range(1, 6);
         if (whichunit <= 3)
         {
             GameObject newKegani = Instantiate(KeganiUnit);

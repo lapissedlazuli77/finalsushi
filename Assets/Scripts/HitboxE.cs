@@ -5,16 +5,37 @@ using UnityEngine;
 public class HitboxE : MonoBehaviour
 {
     public float damage = 10f;
+    public bool canattack = false;
+    public bool attacking = false;
 
-    private void OnTriggerEnter2D(Collider2D other)
+    float timer = 0;
+    float timelimit = 0.5f;
+
+    void Update()
     {
-        if (other.TryGetComponent(out Hamachi hhealth))
-        {
-            hhealth.health -= damage;
+        if (attacking) {
+            timer += Time.deltaTime;
+
+            if (timer >= timelimit)
+            {
+                timer = 0;
+                canattack = true;
+            }
         }
-        if (other.TryGetComponent(out Ikura shealth))
+    }
+
+    private void OnTriggerStay2D(Collider2D other)
+    {
+        if (canattack && other.tag == "PlayerUnit")
         {
-            shealth.health -= damage;
+            canattack = false;
+            if ((other.GetComponent("Hamachi") as Hamachi) != null)
+            {
+                other.GetComponent<Hamachi>().Damaged(damage);
+            } else if ((other.GetComponent("Ikura") as Ikura) != null)
+            {
+                other.GetComponent<Ikura>().Damaged(damage);
+            }
         }
     }
 }

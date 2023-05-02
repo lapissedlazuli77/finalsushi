@@ -11,9 +11,14 @@ public class Hamachi : BaseSakanaUnit
     protected override void SetDamage()
     {
         damage = 15f;
+        hitbox.damage = damage;
     }
     protected override void SetSpeed()
     {
         speed = 0.0016f;
+    }
+    public void Damaged(float dama)
+    {
+        health -= dama;
     }
 }

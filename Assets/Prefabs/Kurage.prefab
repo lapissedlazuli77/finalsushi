@@ -9,6 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1306365816970553653}
+  - component: {fileID: 1231211432886832188}
   m_Layer: 0
   m_Name: Shoot Origin
   m_TagString: Untagged
@@ -31,6 +32,22 @@ Transform:
   m_Father: {fileID: 4198664661478690977}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1231211432886832188
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 140671177208270813}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 923f5f3a7369143a098eba1ac65311db, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 10
+  canattack: 0
+  attacking: 0
+  bolt: {fileID: 6239200538426160759, guid: 3ef106ebf51ce49eab4de5380f9655a5, type: 3}
 --- !u!1 &696797176829932688
 GameObject:
   m_ObjectHideFlags: 0
@@ -78,7 +95,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -1.8617473, y: 0.4769181}
+  m_Offset: {x: -2.7209501, y: 0.4769181}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -89,7 +106,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 4.0169487, y: 0.4842217}
+  m_Size: {x: 5.7353544, y: 0.4842217}
   m_EdgeRadius: 0
 --- !u!114 &7170677766168293559
 MonoBehaviour:
@@ -160,6 +177,7 @@ Transform:
   m_Children:
   - {fileID: 2006392246323930222}
   - {fileID: 1306365816970553653}
+  - {fileID: 1399257106196572497}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -232,9 +250,8 @@ MonoBehaviour:
   speed: 0
   myAnim: {fileID: 7834643108677110109}
   detector: {fileID: 7170677766168293559}
-  hitbox: {fileID: 0}
-  bolt: {fileID: 6239200538426160759, guid: 3ef106ebf51ce49eab4de5380f9655a5, type: 3}
-  shootorigin: {fileID: 140671177208270813}
+  hitbox: {fileID: 3736788943102384565}
+  shooter: {fileID: 1231211432886832188}
 --- !u!61 &311889630399759070
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -282,3 +299,77 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!1 &6340238223449707714
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1399257106196572497}
+  - component: {fileID: 1433187394231588397}
+  - component: {fileID: 3736788943102384565}
+  m_Layer: 0
+  m_Name: Hitbox
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1399257106196572497
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6340238223449707714}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.021631718, y: 0.30716926, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4198664661478690977}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!61 &1433187394231588397
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6340238223449707714}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.005851269, y: 0.011671469}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.044733867, y: 0.5902934}
+  m_EdgeRadius: 0
+--- !u!114 &3736788943102384565
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6340238223449707714}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cd6f0610c39cc46a6b2c0c0ebed54a22, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 10
+  canattack: 0
+  attacking: 0
