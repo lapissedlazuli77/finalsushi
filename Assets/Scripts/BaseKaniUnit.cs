@@ -29,6 +29,7 @@ public class BaseKaniUnit : MonoBehaviour
         SetHealth();
         SetDamage();
         SetSpeed();
+        manager = FindObjectOfType<GameManager>();
     }
 
     // Start is called before the first frame update
@@ -52,8 +53,8 @@ public class BaseKaniUnit : MonoBehaviour
         }
         if (transform.position.x <= -4f)
         {
+            manager.balance -= damage;
             Destroy(gameObject);
-            GameManager.balance -= damage;
         }
         if (health <= 0)
         {

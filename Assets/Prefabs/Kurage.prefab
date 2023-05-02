@@ -251,6 +251,7 @@ MonoBehaviour:
   myAnim: {fileID: 7834643108677110109}
   detector: {fileID: 7170677766168293559}
   hitbox: {fileID: 3736788943102384565}
+  manager: {fileID: 0}
   shooter: {fileID: 1231211432886832188}
 --- !u!61 &311889630399759070
 BoxCollider2D:

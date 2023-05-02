@@ -14,7 +14,8 @@ public class BaseSakanaUnit : MonoBehaviour
     public Detector detector;
     public Hitbox hitbox;
 
-    public GameManager manager;
+    [SerializeField]
+    GameManager manager;
 
     void AssembleStateMachine()
     {
@@ -29,6 +30,7 @@ public class BaseSakanaUnit : MonoBehaviour
         SetHealth();
         SetDamage();
         SetSpeed();
+        manager = FindObjectOfType<GameManager>();
     }
 
     // Start is called before the first frame update
@@ -52,8 +54,8 @@ public class BaseSakanaUnit : MonoBehaviour
         }
         if (transform.position.x >= 4f)
         {
+            manager.balance += damage;
             Destroy(gameObject);
-            GameManager.balance += damage;
         }
         if (health <= 0)
         {

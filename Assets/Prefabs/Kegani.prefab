@@ -249,6 +249,7 @@ MonoBehaviour:
   myAnim: {fileID: 4888937113311339821}
   detector: {fileID: 6657818170085159794}
   hitbox: {fileID: 4701153477672843402}
+  manager: {fileID: 0}
 --- !u!1 &5202444721730030453
 GameObject:
   m_ObjectHideFlags: 0
@@ -321,3 +322,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 10
+  canattack: 0
+  attacking: 0

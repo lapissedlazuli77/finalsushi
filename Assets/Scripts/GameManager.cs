@@ -29,7 +29,7 @@ public class GameManager : MonoBehaviour
         {
             SceneManager.LoadScene("Lose");
         }
-        if (balance <= 100)
+        if (balance >= 100)
         {
             SceneManager.LoadScene("Win");
         }

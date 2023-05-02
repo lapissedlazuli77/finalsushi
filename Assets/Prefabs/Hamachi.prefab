@@ -167,6 +167,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 10
+  canattack: 0
+  attacking: 0
 --- !u!1 &7361416423759379267
 GameObject:
   m_ObjectHideFlags: 0
@@ -322,6 +324,7 @@ MonoBehaviour:
   myAnim: {fileID: 4896017684030037338}
   detector: {fileID: 7342402724179313592}
   hitbox: {fileID: 8666007716356220847}
+  manager: {fileID: 0}
 --- !u!50 &4764742064437418678
 Rigidbody2D:
   serializedVersion: 4

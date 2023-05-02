@@ -372,4 +372,5 @@ MonoBehaviour:
   myAnim: {fileID: 7157651095167947594}
   detector: {fileID: 2478268247835426718}
   hitbox: {fileID: 4807979551995757389}
+  manager: {fileID: 0}
   shooter: {fileID: 983154688448145026}
