@@ -14,6 +14,8 @@ public class BaseKaniUnit : MonoBehaviour
     public Detector detector;
     public HitboxE hitbox;
 
+    public GameManager manager;
+
     void AssembleStateMachine()
     {
         stateMachine = new StateMachine(Advancing, Attacking);
@@ -51,6 +53,7 @@ public class BaseKaniUnit : MonoBehaviour
         if (transform.position.x <= -4f)
         {
             Destroy(gameObject);
+            GameManager.balance -= damage;
         }
         if (health <= 0)
         {

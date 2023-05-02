@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -10,15 +11,29 @@ public class GameManager : MonoBehaviour
     public GameObject lane3;
     public GameObject lane4;
 
+    public GameObject balanceicon;
+    public float balance = 0;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        balance = 0;
     }
 
     // Update is called once per frame
     void Update()
     {
+        balanceicon.transform.position = new Vector3(balance * 0.04f, 1.8f, 1);
+
+        if (balance <= -100)
+        {
+            SceneManager.LoadScene("Lose");
+        }
+        if (balance <= 100)
+        {
+            SceneManager.LoadScene("Win");
+        }
+
         if (player.isPicking == false)
         {
             lane1.SetActive(false);
