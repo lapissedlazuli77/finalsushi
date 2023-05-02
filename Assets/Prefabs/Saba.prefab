@@ -107,8 +107,8 @@ GameObject:
   - component: {fileID: 7409261405672318152}
   - component: {fileID: 1689203057794932425}
   - component: {fileID: 5441886695695763451}
-  - component: {fileID: -7797285993384029915}
   - component: {fileID: -4114724546422268552}
+  - component: {fileID: -8830560097738815730}
   m_Layer: 0
   m_Name: Saba
   m_TagString: PlayerUnit
@@ -218,7 +218,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.3090235, y: 0.41889858}
+  m_Offset: {x: -0.20318311, y: 0.5133989}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.8322834, y: 0.018507382}
@@ -229,9 +229,30 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 0.87}
+  m_Size: {x: 0.78831923, y: 0.25763822}
   m_EdgeRadius: 0
---- !u!114 &-7797285993384029915
+--- !u!50 &-4114724546422268552
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3097690910768328210}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 6
+--- !u!114 &-8830560097738815730
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -243,26 +264,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 24437d7da266a4ca4ac3a2d7f1cca194, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 0
-  speed: 0.04
---- !u!50 &-4114724546422268552
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3097690910768328210}
-  m_BodyType: 1
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 1
-  m_Material: {fileID: 0}
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 0
+  damage: 80

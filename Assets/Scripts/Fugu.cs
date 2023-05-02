@@ -2,16 +2,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Saba : MonoBehaviour
+public class Fugu : MonoBehaviour
 {
-    public float damage = 80f;
+    public int health = 4;
+    public float damage = 30f;
     Rigidbody2D myBody;
 
     // Start is called before the first frame update
     void Start()
     {
         myBody = GetComponent<Rigidbody2D>();
-        myBody.AddForce(transform.right * 600f);
+        myBody.AddForce(transform.right * 100f);
     }
     void OnEnable()
     {
@@ -36,20 +37,24 @@ public class Saba : MonoBehaviour
         {
             Destroy(gameObject);
         }
-    }
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (collision.gameObject.tag == "EnemyUnit")
+        if (health <= 0)
         {
-            if ((collision.gameObject.GetComponent("Kegani") as Kegani) != null)
+            Destroy(gameObject);
+        }
+    }
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.tag == "EnemyUnit")
+        {
+            if ((other.GetComponent("Kegani") as Kegani) != null)
             {
-                Destroy(gameObject);
-                collision.gameObject.GetComponent<Kegani>().Damaged(damage);
+                health--;
+                other.GetComponent<Kegani>().Damaged(damage);
             }
-            else if ((collision.gameObject.GetComponent("Kurage") as Kurage) != null)
+            else if ((other.GetComponent("Kurage") as Kurage) != null)
             {
-                Destroy(gameObject);
-                collision.gameObject.GetComponent<Kurage>().Damaged(damage);
+                health--;
+                other.GetComponent<Kurage>().Damaged(damage);
             }
         }
     }

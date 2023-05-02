@@ -25,7 +25,7 @@ public class IkuraPellet : MonoBehaviour
     }
     void Update()
     {
-        if (transform.position.x <= -4f)
+        if (transform.position.x >= 4f)
         {
             Destroy(gameObject);
         }

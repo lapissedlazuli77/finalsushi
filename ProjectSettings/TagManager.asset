@@ -8,6 +8,7 @@ TagManager:
   - PlayerUnit
   - EnemyUnit
   - Lane
+  - Projectile
   layers:
   - Default
   - TransparentFX

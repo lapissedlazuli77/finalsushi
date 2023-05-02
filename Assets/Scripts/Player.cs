@@ -16,6 +16,7 @@ public class Player : MonoBehaviour
     public GameObject HamachiUnit;
     public GameObject IkuraUnit;
     public GameObject SabaUnit;
+    public GameObject FuguUnit;
 
     public bool isPicking = false;
 
@@ -127,8 +128,8 @@ public class Player : MonoBehaviour
         float truepos = (2 - laneToPlay * 0.8f);
         if (SelectedUnit == "Hamachi") unitcost = 10;
         else if (SelectedUnit == "Ikura") unitcost = 20;
-        else if (SelectedUnit == "Saba") unitcost = 40;
-        else if (SelectedUnit == "Fugu") unitcost = 60;
+        else if (SelectedUnit == "Saba") unitcost = 30;
+        else if (SelectedUnit == "Fugu") unitcost = 50;
         if (currentcost >= unitcost)
         {
             Debug.Log("Sending " + SelectedUnit);
@@ -146,6 +147,15 @@ public class Player : MonoBehaviour
             {
                 GameObject newSaba = Instantiate(SabaUnit);
                 newSaba.transform.position = new Vector3(-5, truepos, 0);
+            }
+            else if (SelectedUnit == "Fugu")
+            {
+                for (int i = 1; i < 5; i++)
+                {
+                    GameObject newFugu = Instantiate(FuguUnit);
+                    float spawnpoint = (2 - i * 0.8f);
+                    newFugu.transform.position = new Vector3(-5, spawnpoint, 0);
+                }
             }
             currentcost -= unitcost;
             ClearSelection();
